@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BBFlix.Models.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,17 @@ namespace BBFlix.Controllers
 {
     public class MovieController : Controller
     {
-        // GET: Movie
-        public ActionResult Index()
+        private readonly BBFlixContext _context;
+
+        public MovieController()
         {
-            return View();
+            _context = new BBFlixContext();
+        }
+        // GET: Movie
+        public ActionResult Index(int id)
+        {
+            var movie = _context.Movie.Where(x => x.mov_id == id).FirstOrDefault();
+            return View(movie);
         }
     }
 }

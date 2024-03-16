@@ -14,6 +14,13 @@ namespace BBFlix
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "Watch",
+               url: "xem-phim/{slug}-{id}",
+               defaults: new { controller = "Movie", action = "Index", id = UrlParameter.Optional },
+               namespaces: new[] { "BBFlix.Controllers" }
+           );
+
+            routes.MapRoute(
                name: "Contact",
                url: "lien-he",
                defaults: new { controller = "Page", action = "Contact", id = UrlParameter.Optional },

@@ -1,4 +1,4 @@
-﻿
+﻿@model BBFlix.Models.EF.Movie
 @{
     ViewBag.Title = "Phim";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +15,7 @@
         <div class="row">
             <!-- title -->
             <div class="col-12">
-                <h1 class="section__title section__title--head">I Dream in Another Language</h1>
+                <h1 class="section__title section__title--head">@Model.mov_title</h1>
             </div>
             <!-- end title -->
             <!-- content -->
@@ -23,7 +23,7 @@
                 <div class="item item--details">
                     <!-- card cover -->
                     <div class="item__cover">
-                        <img src="/Content/Client/img/covers/14.png" alt="">
+                        <img src="@Model.mov_thumb" alt="">
                     </div>
                     <!-- end card cover -->
                     <!-- card content -->
@@ -38,21 +38,41 @@
                         </div>
 
                         <ul class="item__meta">
-                            <li><span>Genre:</span> <a href="#">Action</a> <a href="#">Triler</a></li>
-                            <li><span>Running time:</span> 120 min</li>
-                            <li><span>Country:</span> <a href="#">USA</a></li>
-                            <li><span>Premiere:</span> 05.02.2023</li>
+                            <li>
+                                <span>Thể loại:</span>
+                                @foreach (var item in Model.MovieGenres)
+                                {
+                                    <a href="#">@item.Genres.gen_title</a>
+                                }
+                            </li>
+                            <li><span>Thời lượng:</span> @TimeSpan.FromTicks(Model.mov_time) </li>
+                            <li><span>Quốc gia:</span> <a href="#">@Model.Country.country_name</a></li>
+                            <li><span>Ngày khởi chiếu:</span> @Model.mov_date_rel.Date</li>
                         </ul>
 
                         <ul class="item__meta item__meta--second">
-                            <li><span>Director:</span> <a href="actor.html">Louis Leterrier</a></li>
-                            <li><span>Actors:</span> <a href="actor.html">Son Gun</a> <a href="actor.html">Michelle Rodriguez</a> <a href="actor.html">Jordana Brewster</a> <a href="actor.html">Tyreese Gibson</a> <a href="actor.html">Charlize Theron</a></li>
+                            <li>
+                                <span>Đạo diễn:</span>
+                                @foreach (var item in Model.MovieDirection)
+                                {
+                                    <a href="#">@item.Director.dir_name</a>
+
+                                }
+                            </li>
+                            <li>
+                                <span>Diễn viên:</span>
+                                @foreach (var item in Model.MovieCast)
+                                {
+
+                                    <a href="/dien-vien/@item.Actor.act_slug-@(item.act_id)">@item.Actor.act_name</a>
+                                }
+
+                            </li>
                         </ul>
                     </div>
 
                     <div class="item__description item__description--details item__description--tvseries">
-                        <p>When a renowned archaeologist goes missing, his daughter sets out on a perilous journey to the heart of the Amazon rainforest to find him. Along the way, she discovers a hidden city and a dangerous conspiracy that threatens the very balance of power in the world. With the help of a charming rogue, she must navigate treacherous terrain and outwit powerful enemies to save her father and uncover the secrets of the lost city. A down-on-his-luck boxer struggles to make ends meet while raising his young son. When an old friend offers him a chance to make some quick cash by fighting in an illegal underground boxing tournament, he sees it as his last shot at redemption. But as the stakes get higher and the fights get more brutal, he must confront his own demons and find the strength to win not just for himself, but for his son.</p>
-                        <p>A brilliant scientist discovers a way to harness the power of the ocean's currents to create a new, renewable energy source. But when her groundbreaking technology falls into the wrong hands, she must race against time to stop it from being used for evil. Along the way, she must navigate complex political alliances and confront her own past to save the world from disaster.</p>
+                        <p>@Model.mov_dec</p>
                     </div>
                     <!-- end card content -->
                 </div>
