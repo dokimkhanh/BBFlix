@@ -10,9 +10,9 @@ namespace BBFlix.Models.EF
     {
         public int id { get; set; }
 
-        public int? mov_id { get; set; }
+        public int mov_id { get; set; }
 
-        public int? gen_id { get; set; }
+        public int gen_id { get; set; }
 
         public virtual Genres Genres { get; set; }
 

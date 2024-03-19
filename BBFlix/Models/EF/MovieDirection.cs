@@ -9,11 +9,11 @@ namespace BBFlix.Models.EF
     [Table("MovieDirection")]
     public partial class MovieDirection
     {
-        public int? dir_id { get; set; }
-
-        public int? mov_id { get; set; }
-
         public int id { get; set; }
+
+        public int dir_id { get; set; }
+
+        public int mov_id { get; set; }
 
         public virtual Director Director { get; set; }
 

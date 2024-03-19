@@ -11,11 +11,13 @@ namespace BBFlix.Models.EF
     {
         public int id { get; set; }
 
-        public int? mov_id { get; set; }
+        public int mov_id { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string chap_name { get; set; }
 
+        [Required]
         public string mov_link { get; set; }
 
         public virtual Movie Movie { get; set; }

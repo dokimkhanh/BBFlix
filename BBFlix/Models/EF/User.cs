@@ -18,22 +18,25 @@ namespace BBFlix.Models.EF
         [Key]
         public int user_id { get; set; }
 
+        [Required]
         [StringLength(150)]
         public string user_fullname { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string user_email { get; set; }
 
         public string user_avatar { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string user_pass { get; set; }
 
-        public int? user_plan { get; set; }
+        public int user_plan { get; set; }
 
-        public bool? user_status { get; set; }
+        public bool user_status { get; set; }
 
-        public int? user_role { get; set; }
+        public int user_role { get; set; }
 
         public virtual Plan Plan { get; set; }
 

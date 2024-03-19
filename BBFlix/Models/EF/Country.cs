@@ -18,9 +18,11 @@ namespace BBFlix.Models.EF
         [Key]
         public int country_id { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string country_name { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string country_slug { get; set; }
 

@@ -11,9 +11,9 @@ namespace BBFlix.Models.EF
     {
         public int id { get; set; }
 
-        public int? act_id { get; set; }
+        public int act_id { get; set; }
 
-        public int? movie_id { get; set; }
+        public int movie_id { get; set; }
 
         public virtual Actor Actor { get; set; }
 

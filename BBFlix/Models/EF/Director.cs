@@ -18,9 +18,11 @@ namespace BBFlix.Models.EF
         [Key]
         public int dir_id { get; set; }
 
+        [Required]
         [StringLength(250)]
         public string dir_name { get; set; }
 
+        [Required]
         [StringLength(250)]
         public string dic_slug { get; set; }
 

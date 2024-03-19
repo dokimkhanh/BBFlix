@@ -17,9 +17,11 @@ namespace BBFlix.Models.EF
         [Key]
         public int gen_id { get; set; }
 
+        [Required]
         [StringLength(150)]
         public string gen_title { get; set; }
 
+        [Required]
         [StringLength(150)]
         public string gen_slug { get; set; }
 

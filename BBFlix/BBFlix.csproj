@@ -128,6 +128,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CatalogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReviewController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -153,6 +158,28 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin\css\admin.css" />
+    <Content Include="Content\Admin\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\css\slimselect.css" />
+    <Content Include="Content\Admin\icon\favicon-32x32.png" />
+    <Content Include="Content\Admin\img\angle-down.svg" />
+    <Content Include="Content\Admin\img\award.svg" />
+    <Content Include="Content\Admin\img\check.svg" />
+    <Content Include="Content\Admin\img\clapper-board.svg" />
+    <Content Include="Content\Admin\img\comments.svg" />
+    <Content Include="Content\Admin\img\film.svg" />
+    <Content Include="Content\Admin\img\graph-bar.svg" />
+    <Content Include="Content\Admin\img\images.svg" />
+    <Content Include="Content\Admin\img\logo.svg" />
+    <Content Include="Content\Admin\img\section\section.jpg" />
+    <Content Include="Content\Admin\img\star-half-alt.svg" />
+    <Content Include="Content\Admin\img\star.svg" />
+    <Content Include="Content\Admin\img\user-circle.svg" />
+    <Content Include="Content\Admin\img\user.svg" />
+    <Content Include="Content\Admin\js\admin.js" />
+    <Content Include="Content\Admin\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\Admin\js\slimselect.min.js" />
+    <Content Include="Content\Admin\js\smooth-scrollbar.js" />
     <Content Include="Content\Client\css\bootstrap.min.css" />
     <Content Include="Content\Client\css\default-skin-2.html" />
     <Content Include="Content\Client\css\default-skin.css" />
@@ -234,6 +261,13 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Catalog\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Review\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -270,7 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Admin\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

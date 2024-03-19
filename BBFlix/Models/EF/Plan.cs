@@ -18,6 +18,7 @@ namespace BBFlix.Models.EF
         [Key]
         public int plan_id { get; set; }
 
+        [Required]
         [StringLength(150)]
         public string plan_name { get; set; }
 

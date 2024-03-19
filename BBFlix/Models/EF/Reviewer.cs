@@ -12,16 +12,17 @@ namespace BBFlix.Models.EF
         [Key]
         public int rev_id { get; set; }
 
-        public int? mov_id { get; set; }
+        public int mov_id { get; set; }
 
+        [Required]
         [StringLength(150)]
         public string rev_content { get; set; }
 
-        public int? rev_star { get; set; }
+        public double rev_star { get; set; }
 
-        public int? rev_by { get; set; }
+        public int rev_by { get; set; }
 
-        public DateTime? rev_date { get; set; }
+        public DateTime rev_date { get; set; }
 
         public virtual Movie Movie { get; set; }
 

@@ -22,26 +22,31 @@ namespace BBFlix.Models.EF
         [Key]
         public int mov_id { get; set; }
 
+        [Required]
         [StringLength(150)]
         public string mov_title { get; set; }
+
+        [Required]
         public string mov_dec { get; set; }
 
-        public int? mov_year { get; set; }
+        public int mov_year { get; set; }
 
-        public int? mov_country { get; set; }
+        public int mov_country { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime mov_date_rel { get; set; }
 
+        [Required]
         [StringLength(200)]
         public string mov_thumb { get; set; }
 
         public long mov_time { get; set; }
 
+        [Required]
         [StringLength(150)]
         public string mov_slug { get; set; }
 
-        public bool? mov_status { get; set; }
+        public bool mov_status { get; set; }
 
         public virtual Country Country { get; set; }
 

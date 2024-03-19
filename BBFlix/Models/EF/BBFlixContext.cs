@@ -27,25 +27,64 @@ namespace BBFlix.Models.EF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Actor>()
+                .HasMany(e => e.MovieCast)
+                .WithRequired(e => e.Actor)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Country>()
                 .HasMany(e => e.Movie)
-                .WithOptional(e => e.Country)
-                .HasForeignKey(e => e.mov_country);
+                .WithRequired(e => e.Country)
+                .HasForeignKey(e => e.mov_country)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Director>()
+                .HasMany(e => e.MovieDirection)
+                .WithRequired(e => e.Director)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Genres>()
+                .HasMany(e => e.MovieGenres)
+                .WithRequired(e => e.Genres)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Movie>()
                 .HasMany(e => e.MovieCast)
-                .WithOptional(e => e.Movie)
-                .HasForeignKey(e => e.movie_id);
+                .WithRequired(e => e.Movie)
+                .HasForeignKey(e => e.movie_id)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Movie>()
+                .HasMany(e => e.MovieData)
+                .WithRequired(e => e.Movie)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Movie>()
+                .HasMany(e => e.MovieDirection)
+                .WithRequired(e => e.Movie)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Movie>()
+                .HasMany(e => e.MovieGenres)
+                .WithRequired(e => e.Movie)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Movie>()
+                .HasMany(e => e.Reviewer)
+                .WithRequired(e => e.Movie)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Plan>()
                 .HasMany(e => e.User)
-                .WithOptional(e => e.Plan)
-                .HasForeignKey(e => e.user_plan);
+                .WithRequired(e => e.Plan)
+                .HasForeignKey(e => e.user_plan)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .HasMany(e => e.Reviewer)
-                .WithOptional(e => e.User)
-                .HasForeignKey(e => e.rev_by);
+                .WithRequired(e => e.User)
+                .HasForeignKey(e => e.rev_by)
+                .WillCascadeOnDelete(false);
         }
     }
 }

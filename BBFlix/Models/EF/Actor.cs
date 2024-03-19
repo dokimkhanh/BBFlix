@@ -18,11 +18,13 @@ namespace BBFlix.Models.EF
         [Key]
         public int act_id { get; set; }
 
+        [Required]
         [StringLength(250)]
         public string act_name { get; set; }
 
-        public int? act_gender { get; set; }
+        public int act_gender { get; set; }
 
+        [Required]
         [StringLength(250)]
         public string act_slug { get; set; }
 
