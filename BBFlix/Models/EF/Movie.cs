@@ -46,9 +46,13 @@ namespace BBFlix.Models.EF
         [StringLength(150)]
         public string mov_slug { get; set; }
 
+        public int mov_type { get; set; }
+
         public bool mov_status { get; set; }
 
         public virtual Country Country { get; set; }
+
+        public virtual MovieType MovieType { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovieCast> MovieCast { get; set; }

@@ -90,10 +90,7 @@
                                                 <div class="dashbox__table-text">@item.mov_title</div>
                                             </td>
                                             <td>
-                                                @foreach (var cats in item.MovieGenres)
-                                                {
-                                                    <div class="dashbox__table-text">@cats.Genres.gen_title</div>
-                                                }
+                                                <div class="dashbox__table-text">@item.MovieType.mov_type_title</div>
                                             </td>
                                         </tr>
                                     }

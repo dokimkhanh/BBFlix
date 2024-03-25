@@ -38,6 +38,8 @@ namespace BBFlix.Models.EF
 
         public int user_role { get; set; }
 
+        public DateTime user_date { get; set; }
+
         public virtual Plan Plan { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

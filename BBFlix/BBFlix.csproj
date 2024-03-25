@@ -152,6 +152,7 @@
     <Compile Include="Models\EF\MovieData.cs" />
     <Compile Include="Models\EF\MovieDirection.cs" />
     <Compile Include="Models\EF\MovieGenres.cs" />
+    <Compile Include="Models\EF\MovieType.cs" />
     <Compile Include="Models\EF\Plan.cs" />
     <Compile Include="Models\EF\Reviewer.cs" />
     <Compile Include="Models\EF\User.cs" />

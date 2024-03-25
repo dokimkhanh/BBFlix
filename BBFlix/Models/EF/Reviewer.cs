@@ -18,7 +18,7 @@ namespace BBFlix.Models.EF
         [StringLength(150)]
         public string rev_content { get; set; }
 
-        public double rev_star { get; set; }
+        public double? rev_star { get; set; }
 
         public int rev_by { get; set; }
 

@@ -21,6 +21,7 @@ namespace BBFlix.Models.EF
         public virtual DbSet<MovieData> MovieData { get; set; }
         public virtual DbSet<MovieDirection> MovieDirection { get; set; }
         public virtual DbSet<MovieGenres> MovieGenres { get; set; }
+        public virtual DbSet<MovieType> MovieType { get; set; }
         public virtual DbSet<Plan> Plan { get; set; }
         public virtual DbSet<Reviewer> Reviewer { get; set; }
         public virtual DbSet<User> User { get; set; }
@@ -72,6 +73,12 @@ namespace BBFlix.Models.EF
             modelBuilder.Entity<Movie>()
                 .HasMany(e => e.Reviewer)
                 .WithRequired(e => e.Movie)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MovieType>()
+                .HasMany(e => e.Movie)
+                .WithRequired(e => e.MovieType)
+                .HasForeignKey(e => e.mov_type)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Plan>()
