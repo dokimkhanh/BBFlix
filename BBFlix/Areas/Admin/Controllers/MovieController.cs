@@ -7,12 +7,12 @@ using System.Web.Mvc;
 
 namespace BBFlix.Areas.Admin.Controllers
 {
-    public class CatalogController : Controller
+    public class MovieController : Controller
     {
 
         private BBFlixContext _context;
 
-        public CatalogController()
+        public MovieController()
         {
             _context = new BBFlixContext();
         }

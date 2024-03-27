@@ -1,0 +1,46 @@
+﻿@model BBFlix.Models.EF.Genres
+@{
+    ViewBag.Title = "Cập nhật thể loại phim";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- main content -->
+<main class="main">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- main title -->
+            <div class="col-12">
+                <div class="main__title">
+                    <h2>Cập nhật thể loại phim</h2>
+                </div>
+            </div>
+            <!-- end main title -->
+            <!-- form -->
+            <div class="col-12">
+                @using (Html.BeginForm("Edit", "Genre", FormMethod.Post, new { @class = "sign__form sign__form--add" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(x => x.gen_id)
+                    <div class="row">
+                        <div class="col-12 col-xl-12">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="sign__group">
+                                        @Html.EditorFor(x => x.gen_title, new { htmlAttributes = new { @class = "sign__input", @placeholder = "VD: Phim hành động" } })
+                                        @Html.ValidationMessageFor(model => model.gen_title, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit" class="sign__btn sign__btn--small"><span>Cập nhật</span></button>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- end form -->
+        </div>
+    </div>
+</main>

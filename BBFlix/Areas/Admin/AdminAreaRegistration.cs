@@ -19,6 +19,24 @@ namespace BBFlix.Areas.Admin
                 "admin/danh-gia",
                 new { controller = "Review", action = "Index", id = UrlParameter.Optional }
             );
+            
+            context.MapRoute(
+                "Admin_Genres",
+                "admin/the-loai",
+                new { controller = "Genre", action = "Index", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+               "Admin_Add_Genres",
+               "admin/the-loai/them",
+               new { controller = "Genre", action = "Add", id = UrlParameter.Optional }
+           );
+
+            context.MapRoute(
+               "Admin_Update_Genres",
+               "admin/the-loai/cap-nhat/{id}",
+               new { controller = "Genre", action = "Edit", id = UrlParameter.Optional }
+           );
 
             context.MapRoute(
                 "Admin_Users",
@@ -29,7 +47,7 @@ namespace BBFlix.Areas.Admin
             context.MapRoute(
                 "Admin_Movie",
                 "admin/danh-sach-phim",
-                new { controller = "Catalog", action = "Index", id = UrlParameter.Optional }
+                new { controller = "Movie", action = "Index", id = UrlParameter.Optional }
             );
 
             context.MapRoute(
