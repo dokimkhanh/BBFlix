@@ -30,6 +30,9 @@
                             </button>
                         </form>
                         <!-- end search -->
+
+                        <a href="/admin/thanh-vien/them-thanh-vien" class="main__title-link ms-4"><span>Thêm mới</span></a>
+
                     </div>
                 </div>
             </div>
@@ -63,7 +66,7 @@
                                         <td>
                                             <div class="catalog__user">
                                                 <div class="catalog__avatar">
-                                                    <img src="@item.user_avatar" alt="">
+                                                    <img src="@(item.user_avatar != null ? item.user_avatar : "/Content/Admin/img/user.svg")" alt="">
                                                 </div>
                                                 <div class="catalog__meta">
                                                     <h3>@item.user_fullname</h3>
@@ -96,10 +99,10 @@
                                         </td>
                                         <td>
                                             <div class="catalog__btns">
-                                                <button type="button" data-bs-toggle="modal" class="catalog__btn catalog__btn--banned" data-bs-target="#modal-status">
+                                                <button type="button" data-bs-toggle="modal" data-user-id="@item.user_id" class="catalog__btn catalog__btn--banned" data-bs-target="#modal-status">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,13a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0V14A1,1,0,0,0,12,13Zm5-4V7A5,5,0,0,0,7,7V9a3,3,0,0,0-3,3v7a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V12A3,3,0,0,0,17,9ZM9,7a3,3,0,0,1,6,0V9H9Zm9,12a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V12a1,1,0,0,1,1-1H17a1,1,0,0,1,1,1Z" /></svg>
                                                 </button>
-                                                <a href="edit-user.html" class="catalog__btn catalog__btn--edit">
+                                                <a href="/admin/thanh-vien/cap-nhat/@item.user_id" class="catalog__btn catalog__btn--edit">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5,18H9.24a1,1,0,0,0,.71-.29l6.92-6.93h0L19.71,8a1,1,0,0,0,0-1.42L15.47,2.29a1,1,0,0,0-1.42,0L11.23,5.12h0L4.29,12.05a1,1,0,0,0-.29.71V17A1,1,0,0,0,5,18ZM14.76,4.41l2.83,2.83L16.17,8.66,13.34,5.83ZM6,13.17l5.93-5.93,2.83,2.83L8.83,16H6ZM21,20H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z" /></svg>
                                                 </a>
                                                 <button type="button" data-bs-toggle="modal" class="catalog__btn catalog__btn--delete" data-bs-target="#modal-delete">
@@ -165,16 +168,16 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal__content">
-                <form action="#" class="modal__form">
-                    <h4 class="modal__title">Status change</h4>
-
-                    <p class="modal__text">Are you sure about immediately change status?</p>
-
+                @using (Html.BeginForm("ChangeStatus", "Users", FormMethod.Post))
+                {
+                    <h4 class="modal__title">Thay đổi trạng thái?</h4>
+                    <p class="modal__text">Bạn có chắc chắn muốn thay đổi trạng thái tài khoản?</p>
+                    <input type="hidden" id="userId" name="id" value="" />
                     <div class="modal__btns">
-                        <button class="modal__btn modal__btn--apply" type="button"><span>Apply</span></button>
-                        <button class="modal__btn modal__btn--dismiss" type="button" data-bs-dismiss="modal" aria-label="Close"><span>Dismiss</span></button>
+                        <button class="modal__btn modal__btn--apply" type="submit"><span>Thay đổi</span></button>
+                        <button class="modal__btn modal__btn--dismiss" type="button" data-bs-dismiss="modal" aria-label="Close"><span>Hủy</span></button>
                     </div>
-                </form>
+                }
             </div>
         </div>
     </div>
@@ -200,3 +203,17 @@
     </div>
 </div>
 <!-- end delete modal -->
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Xử lý khi modal hiển thị
+            $('#modal-status').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Nút mở modal
+                var userId = button.data('user-id'); // Lấy giá trị user id từ nút
+                $(this).find('#userId').val(userId); // Đặt giá trị user id vào trường ẩn
+            });
+        });
+    </script>
+}

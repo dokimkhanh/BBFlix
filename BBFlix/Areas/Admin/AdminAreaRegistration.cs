@@ -45,6 +45,18 @@ namespace BBFlix.Areas.Admin
             );
 
             context.MapRoute(
+                "Admin_AddUsers",
+                "admin/thanh-vien/them-thanh-vien",
+                new { controller = "Users", action = "Add", id = UrlParameter.Optional }
+            );
+
+            context.MapRoute(
+               "Admin_UpdateUsers",
+               "admin/thanh-vien/cap-nhat/{id}",
+               new { controller = "Users", action = "Edit", id = UrlParameter.Optional }
+           );
+
+            context.MapRoute(
                 "Admin_Movie",
                 "admin/danh-sach-phim",
                 new { controller = "Movie", action = "Index", id = UrlParameter.Optional }

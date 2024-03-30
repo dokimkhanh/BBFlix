@@ -274,6 +274,7 @@
     <Content Include="Areas\Admin\Views\Genre\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Genre\Add.cshtml" />
     <Content Include="Areas\Admin\Views\Genre\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Add.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
